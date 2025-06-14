@@ -47,12 +47,9 @@ async function scrapeHostData(hostId) {
 
         let rating = null;
         try {
-            // Verifica a existência do SVG diretamente na estrutura da avaliação.
             const svgElement = await page.$('div[role="group"] > div > div:nth-child(3) svg');
 
             if (svgElement) {
-                // Se o SVG existir, significa que a avaliação está presente.
-                // Agora, obtemos o texto do span que contém o valor da avaliação.
                 const ratingTextSpan = await page.$('div[role="group"] > div > div:nth-child(3) > span');
                 if (ratingTextSpan) {
                     rating = await page.evaluate(el => el.textContent.trim(), ratingTextSpan);
