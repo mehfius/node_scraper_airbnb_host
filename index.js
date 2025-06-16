@@ -1,6 +1,5 @@
 const express = require('express');
 const puppeteer = require('puppeteer');
-
 const app = express();
 const PORT = 3002;
 
@@ -19,15 +18,7 @@ async function scrapeHostData(host) {
     try {
         browser = await puppeteer.launch({
             headless: 'new',
-            args: [
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-web-security',
-                '--disable-gpu',
-                '--enable-logging',
-                '--disable-dev-shm-usage',
-                '--incognito'
-            ]
+            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security', '--disable-gpu', '--enable-logging', '--disable-dev-shm-usage', '--incognito']
         });
         const page = await browser.newPage();
 
