@@ -55,7 +55,7 @@ async function scrapeHostData(host) {
         return { name, image, reviews, rating };
     } catch (error) {
         console.error(`Erro ao raspar dados para o anfitrião ${host}:`, error);
-        throw error; // Re-throw the error to be caught by the timeout logic
+        throw error; 
     } finally {
         if (browser) {
             await browser.close();
