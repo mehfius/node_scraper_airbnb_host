@@ -5,7 +5,7 @@
   },
   "item": [
     {
-      "name": "POST /scrape",
+      "name": "POST /scrape (localhost)",
       "request": {
         "method": "POST",
         "header": [
@@ -23,6 +23,28 @@
           "protocol": "http",
           "host": ["localhost"],
           "port": "3002",
+          "path": ["scrape"]
+        }
+      }
+    },
+    {
+      "name": "POST /scrape (ngrok)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"host\": \"687372768\"\n}"
+        },
+        "url": {
+          "raw": "https://guided-usually-chigger.ngrok-free.app/scrape",
+          "protocol": "https",
+          "host": ["guided-usually-chigger","ngrok-free","app"],
           "path": ["scrape"]
         }
       }

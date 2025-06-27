@@ -1,7 +1,7 @@
 const express = require('express');
 const puppeteer = require('puppeteer');
 const app = express();
-const PORT = 3002;
+const PORT = 3000;
 
 app.use(express.json());
 
