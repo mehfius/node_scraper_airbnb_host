@@ -4,15 +4,21 @@
   "description": "Atualizar informacoes do host do Airbnb",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "save": "node crawler_save_html.js",
+    "clear": "node crawler_optimize.js",
+    "load": "node crawler_load_html.js",
+    "start": "npm run save && npm run clear && npm run load",
     "docker:build": "docker build -t mehfius/scrapebnb-host --no-cache .",
     "docker:push": "docker push mehfius/scrapebnb-host",
-    "docker:release": "npm run docker:build && npm run docker:push"        
+    "docker:release": "npm run docker:build && npm run docker:push"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.51.0",
+    "cheerio": "^1.1.0",
     "date-fns": "^4.1.0",
-    "dotenv": "^16.5.0",
+    "dotenv": "^16.6.1",
     "express": "^5.1.0",
+    "jsdom": "^26.1.0",
     "puppeteer": "^24.10.0"
   }
 }
